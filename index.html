@@ -1,0 +1,49 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">
+  <h1>{{ message }}</h1>
+
+  <h2>Insert Your TODO</h2>
+  <input v-model="text" />
+  <br />
+  <button @click="addToDo">Add</button>
+
+  <ul v-if="todoList.length">
+    <li v-for="(item, index) of todoList">
+      {{ item }}
+      <button @click="deleteToDo(index)">x</button>
+    </li>
+  </ul>
+</div>
+
+<script>
+  const { createApp, ref } = Vue
+
+  createApp({
+    setup() {
+      const message = ref("Hello William! Here is your TO DO List!!!")
+      const text = ref("Add Your To Do")
+      return {
+        message,
+        text,
+      }
+    },
+    data() {
+      return {
+        todoList: ["To wash", "To clean", "To eat"],
+      }
+    },
+    methods: {
+      addToDo() {
+        if (this.text) {
+          this.todoList.push(this.text)
+          this.text = ""
+        }
+      },
+      deleteToDo(index) {
+        this.todoList.splice(index, 1);
+      },
+    },
+  }).mount("#app")
+</script>
+<style></style>

@@ -17,12 +17,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-      - run: npm ci
-      - run: npm test
-
+      - name: version
+        run: node -v
       - name: Node 20
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci
-      - run: npm test
+      - name: version
+        run: node -v

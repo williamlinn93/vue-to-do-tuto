@@ -1,4 +1,4 @@
-name: Deploy-Firebase-Dev
+name: Test Node
 run-name: Deploy by @${{ github.actor }}
 
 on: workflow_dispatch
